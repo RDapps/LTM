@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">LTM</string>
+    <string-array name="capa">
+        <item>250</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>3200</item>
+        <item>4000</item>
+        <item>5000</item>
+    </string-array>
+
+    <string-array name="spd">
+        <item>Single Speed</item>
+        <item>Dual Speed</item>
+    </string-array>
+
+    <string-array name="type">
+        <item>Eye Suspension</item>
+        <item>Hook Suspension</item>
+        <item>Push Travel Trolley</item>
+        <item>Electric Travel Trolley</item>
+    </string-array>
+
+    <string-array name="beam">
+        <item>50-99</item>
+        <item>76-139</item>
+        <item>56-119</item>
+    </string-array>
+</resources>
