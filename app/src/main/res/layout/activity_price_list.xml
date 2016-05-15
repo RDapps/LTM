@@ -18,6 +18,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
+        //Capacity Spinner
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,6 +32,7 @@
             android:id="@+id/capacity"
            />
 
+        //Speed Spinner
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,6 +46,7 @@
             android:id="@+id/speed"
             android:layout_gravity="center_horizontal" />
 
+        //HoistSpeed Spinner
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,6 +60,7 @@
             android:id="@+id/hoistSpeed"
             android:layout_gravity="center_horizontal" />
 
+        //Type Spinner
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,6 +72,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/type" />
+
+        //Price
 
         <TextView
             android:layout_width="match_parent"

@@ -7,11 +7,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class priceList extends Activity implements AdapterView.OnItemSelectedListener{
 
-    Spinner spinner;
+    Spinner capacity;
+    Spinner speed;
+    Spinner hoistSpeed;
+    Spinner type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,56 +23,62 @@ public class priceList extends Activity implements AdapterView.OnItemSelectedLis
 
 
         //Spinner for Capacity
-        spinner = (Spinner) findViewById(R.id.capacity);
-        ArrayAdapter adapterCapa=ArrayAdapter.createFromResource(this,R.array.capacity, android.R.layout.simple_spinner_item);
-        spinner.setAdapter(adapterCapa);
+        capacity = (Spinner) findViewById(R.id.capacity);
+        ArrayAdapter adapterCapa=ArrayAdapter.createFromResource(this,R.array.arrayCapacity, android.R.layout.simple_spinner_item);
+        capacity.setAdapter(adapterCapa);
 
-        spinner.setOnItemSelectedListener(this);
+        capacity.setOnItemSelectedListener(this);
 
         //Spinner for the Speed
-        spinner = (Spinner) findViewById(R.id.speed);
-        ArrayAdapter adapterSpd = ArrayAdapter.createFromResource(this,R.array.spd, android.R.layout.simple_spinner_item);
-        spinner.setAdapter(adapterSpd);
+        speed = (Spinner) findViewById(R.id.speed);
+        ArrayAdapter adapterSpd = ArrayAdapter.createFromResource(this,R.array.arraySpeed, android.R.layout.simple_spinner_item);
+        speed.setAdapter(adapterSpd);
 
-        spinner.setOnItemSelectedListener(this);
+        speed.setOnItemSelectedListener(this);
 
-        //Spinner for the Type
-        spinner = (Spinner) findViewById(R.id.hoistSpeed);
-        ArrayAdapter adapterType=ArrayAdapter.createFromResource(this,R.array.hoistSpeed, android.R.layout.simple_spinner_item);
-        spinner.setAdapter(adapterType);
+        //Spinner for the HoistSpeed
 
-        spinner.setOnItemSelectedListener(this);
+        if(speed.getSelectedItem().toString().equals("Single Speed"))
+        {
+        hoistSpeed = (Spinner) findViewById(R.id.hoistSpeed);
+        ArrayAdapter adapterType=ArrayAdapter.createFromResource(this,R.array.arrayHoistSpeedSingle, android.R.layout.simple_spinner_item);
+        hoistSpeed.setAdapter(adapterType);
+            hoistSpeed.setOnItemSelectedListener(this);
+        }
 
-        //Spinner for the beam
-        spinner = (Spinner) findViewById(R.id.type);
-        ArrayAdapter adapterBeam=ArrayAdapter.createFromResource(this,R.array.type, android.R.layout.simple_spinner_item);
-        spinner.setAdapter(adapterBeam);
+        else if(speed.getSelectedItem().toString().equals("Dual Speed"))
+        {
+            hoistSpeed = (Spinner) findViewById(R.id.hoistSpeed);
+            ArrayAdapter adapterType=ArrayAdapter.createFromResource(this,R.array.arrayHoistSpeedDouble, android.R.layout.simple_spinner_item);
+            hoistSpeed.setAdapter(adapterType);
+            hoistSpeed.setOnItemSelectedListener(this);
+        }
 
-        spinner.setOnItemSelectedListener(this);
+        //Spinner for the type
+        type = (Spinner) findViewById(R.id.type);
+        ArrayAdapter adapterBeam=ArrayAdapter.createFromResource(this,R.array.arrayType, android.R.layout.simple_spinner_item);
+        type.setAdapter(adapterBeam);
+
+        type.setOnItemSelectedListener(this);
 
     }
-
 
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-        TextView myText = (TextView) view;
-        Toast.makeText(this, myText.getText(), Toast.LENGTH_SHORT).show();
+//        TextView myText = (TextView) view;
+//        Toast.makeText(this, myText.getText(), Toast.LENGTH_SHORT).show();
 
-        TextView t=(TextView)findViewById(R.id.textView5);
-        t.setText(myText.getText());
-
-
-        //try to print result in a text view - replace with a calculated price
-        /*TextView price = (TextView) findViewById(R.id.textView5);
-        String messageString=myText.getText().toString();
-        price.setText(messageString);*/
-
-
+        if (capacity.getSelectedItem().toString().equals("250") && speed.getSelectedItem().toString().equals("Single Speed") && hoistSpeed.getSelectedItem().toString().equals("8") && type.getSelectedItem().toString().equals("Eye Suspension")) {
+            TextView t = (TextView) findViewById(R.id.textView5);
+            t.setText("£989.00");
+        } else if (capacity.getSelectedItem().toString().equals("250") && speed.getSelectedItem().toString().equals("Single Speed") && hoistSpeed.getSelectedItem().toString().equals("8") && type.getSelectedItem().toString().equals("Hook Suspension")) {
+            TextView t = (TextView) findViewById(R.id.textView5);
+            t.setText("£1019.00");
+        }
 
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
