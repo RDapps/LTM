@@ -17,4 +17,8 @@
         <item name="colorPrimary">@color/primary_text_disabled_material_light</item>
     </style>
 
+    <style name="spinners" parent="spinners">
+        <item name="android:textSize">20dp</item>
+    </style>
+
 </resources>

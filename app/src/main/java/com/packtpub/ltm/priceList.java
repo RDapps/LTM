@@ -16,41 +16,64 @@ public class priceList extends Activity implements AdapterView.OnItemSelectedLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_price_list);
+
 
         //Spinner for Capacity
         spinner = (Spinner) findViewById(R.id.capacity);
-        ArrayAdapter adapterCapa=ArrayAdapter.createFromResource(this,R.array.capa, android.R.layout.simple_spinner_item);
+        ArrayAdapter adapterCapa=ArrayAdapter.createFromResource(this,R.array.capacity, android.R.layout.simple_spinner_item);
         spinner.setAdapter(adapterCapa);
+
+        spinner.setOnItemSelectedListener(this);
 
         //Spinner for the Speed
         spinner = (Spinner) findViewById(R.id.speed);
-        ArrayAdapter adapterSpd=ArrayAdapter.createFromResource(this,R.array.spd, android.R.layout.simple_spinner_item);
+        ArrayAdapter adapterSpd = ArrayAdapter.createFromResource(this,R.array.spd, android.R.layout.simple_spinner_item);
         spinner.setAdapter(adapterSpd);
 
+        spinner.setOnItemSelectedListener(this);
+
         //Spinner for the Type
-        spinner = (Spinner) findViewById(R.id.type);
-        ArrayAdapter adapterType=ArrayAdapter.createFromResource(this,R.array.type, android.R.layout.simple_spinner_item);
+        spinner = (Spinner) findViewById(R.id.hoistSpeed);
+        ArrayAdapter adapterType=ArrayAdapter.createFromResource(this,R.array.hoistSpeed, android.R.layout.simple_spinner_item);
         spinner.setAdapter(adapterType);
 
+        spinner.setOnItemSelectedListener(this);
+
         //Spinner for the beam
-        spinner = (Spinner) findViewById(R.id.beam);
-        ArrayAdapter adapterBeam=ArrayAdapter.createFromResource(this,R.array.beam, android.R.layout.simple_spinner_item);
+        spinner = (Spinner) findViewById(R.id.type);
+        ArrayAdapter adapterBeam=ArrayAdapter.createFromResource(this,R.array.type, android.R.layout.simple_spinner_item);
         spinner.setAdapter(adapterBeam);
 
         spinner.setOnItemSelectedListener(this);
 
     }
 
+
+
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
         TextView myText = (TextView) view;
-        Toast.makeText(this, "you selected" + myText.getText(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, myText.getText(), Toast.LENGTH_SHORT).show();
+
+        TextView t=(TextView)findViewById(R.id.textView5);
+        t.setText(myText.getText());
+
+
+        //try to print result in a text view - replace with a calculated price
+        /*TextView price = (TextView) findViewById(R.id.textView5);
+        String messageString=myText.getText().toString();
+        price.setText(messageString);*/
+
+
+
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
 }
