@@ -27,10 +27,8 @@
 
     <string-array name="arrayHoistSpeedSingle">
         <item>Select</item>
-        <item>3.2</item>
-        <item>8/2</item>
-        <item>4/1</item>
-        <item>3.2/0.8</item>
+        <item>4</item>
+        <item>8</item>
     </string-array>
 
     <string-array name="arrayHoistSpeedDouble">
